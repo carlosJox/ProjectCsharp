@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsultaMeicamentoPorFormaF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaMeicamentoPorFormaF.Designer.cs">
+      <DependentUpon>FrmConsultaMeicamentoPorFormaF.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoEspecialidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     <Compile Include="Utilitarios\SQL2.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaMeicamentoPorFormaF.resx">
+      <DependentUpon>FrmConsultaMeicamentoPorFormaF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoEspecialidad.resx">
       <DependentUpon>FrmListadoEspecialidad.cs</DependentUpon>

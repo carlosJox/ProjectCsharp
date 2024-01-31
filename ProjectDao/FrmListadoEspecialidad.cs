@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using ProjectDao.Utilitarios;
 
 
 namespace ProjectDao
@@ -22,14 +23,14 @@ namespace ProjectDao
 
         private void FrmListadoEspecialidad_Load(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnx"].ConnectionString); //Cadena conexion
-            SqlCommand cmd = new SqlCommand("uspListarEspecialidades", cn); //consulta a ejecutar
-            cmd.CommandType = CommandType.StoredProcedure;
-            DataTable tabla = new DataTable(); //Tabla vacia 
-            SqlDataAdapter sda = new SqlDataAdapter(cmd); //Ejecuta la consulta del sqlcommand
-            sda.Fill(tabla);//Llenar taba //Resultado de una consulta a una tabla (Fill)
+            SQL.ListarProcedure("uspListarEspecialidades",dtgListaEspec);
+        }
 
-            dtgListaEspec.DataSource = tabla; //asignaar la grilla al datatable
+        //Filtrar por nombre 
+        private void filtrar(object sender, EventArgs e)
+        {
+            string nombre =txtEspecialidad.Text;
+            SQL.FiltradoDatos("USPLISTARESPECIALIDADPORNOMBRE", "@NOMBRE", nombre, dtgListaEspec);
         }
     }
 }
