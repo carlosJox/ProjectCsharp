@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectDao.Utilitarios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -21,6 +22,8 @@ namespace ProjectDao
 
         private void FrmConsultaMeicamentoPorFormaF_Load(object sender, EventArgs e)
         {
+            SQL.LlenarComboBox("USPLLENARCOMBOFORMAFARMACEUTICA", cbxFormaFarm);
+                /*
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnx"].ConnectionString);
             SqlCommand cmd = new SqlCommand("USPLLENARCOMBOFORMAFARMACEUTICA", cn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -30,6 +33,7 @@ namespace ProjectDao
             cbxFormaFarm.DataSource = tabla;
             cbxFormaFarm.DisplayMember = "NOMBRE";
             cbxFormaFarm.ValueMember = "IIDFORMAFARMACEUTICA";
+                */
 
         
         }

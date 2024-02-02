@@ -48,5 +48,17 @@ namespace ProjectDao.Utilitarios
             sda.Fill(tabla);
             grilla.DataSource = tabla; //Llenar contenido
         }
+
+        public static void LlenarComboBox(string nombreProcedure, ComboBox combo, string displayMember ="Nombre", string valueMember = "Id")
+        {
+            SqlCommand cmd = new SqlCommand(nombreProcedure, cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataTable tabla = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd); //Ejecutar consulta 'cmd'
+            sda.Fill(tabla);
+            combo.DataSource = tabla; //Llenar contenido
+            combo.DisplayMember = displayMember;
+            combo.ValueMember = valueMember;
+        }
     }
 }

@@ -37,14 +37,14 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 102);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(103, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label1.Text = "Forma Farmaceutica";
             // 
             // cbxFormaFarm
             // 
             this.cbxFormaFarm.FormattingEnabled = true;
-            this.cbxFormaFarm.Location = new System.Drawing.Point(53, 99);
+            this.cbxFormaFarm.Location = new System.Drawing.Point(131, 99);
             this.cbxFormaFarm.Name = "cbxFormaFarm";
             this.cbxFormaFarm.Size = new System.Drawing.Size(134, 21);
             this.cbxFormaFarm.TabIndex = 1;
