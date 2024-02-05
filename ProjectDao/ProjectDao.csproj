@@ -47,11 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmListadoClinica.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmListadoClinica.Designer.cs">
+      <DependentUpon>FrmListadoClinica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultaMedicoPorEspecialiad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaMedicoPorEspecialiad.Designer.cs">
+      <DependentUpon>FrmConsultaMedicoPorEspecialiad.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmConsultaMeicamentoPorFormaF.cs">
       <SubType>Form</SubType>
@@ -59,24 +65,72 @@
     <Compile Include="FrmConsultaMeicamentoPorFormaF.Designer.cs">
       <DependentUpon>FrmConsultaMeicamentoPorFormaF.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoDoctor.Designer.cs">
+      <DependentUpon>FrmListadoDoctor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoEspecialidad.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmListadoEspecialidad.Designer.cs">
       <DependentUpon>FrmListadoEspecialidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoMedicamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoMedicamentos.Designer.cs">
+      <DependentUpon>FrmListadoMedicamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoPaciente.Designer.cs">
+      <DependentUpon>FrmListadoPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPopupClinica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPopupClinica.Designer.cs">
+      <DependentUpon>frmPopupClinica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPopupMedicamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPopupMedicamento.Designer.cs">
+      <DependentUpon>frmPopupMedicamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL.cs" />
     <Compile Include="Utilitarios\SQL2.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FrmListadoClinica.resx">
+      <DependentUpon>FrmListadoClinica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaMedicoPorEspecialiad.resx">
+      <DependentUpon>FrmConsultaMedicoPorEspecialiad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaMeicamentoPorFormaF.resx">
       <DependentUpon>FrmConsultaMeicamentoPorFormaF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoDoctor.resx">
+      <DependentUpon>FrmListadoDoctor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoEspecialidad.resx">
       <DependentUpon>FrmListadoEspecialidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoMedicamentos.resx">
+      <DependentUpon>FrmListadoMedicamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoPaciente.resx">
+      <DependentUpon>FrmListadoPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPopupClinica.resx">
+      <DependentUpon>frmPopupClinica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPopupMedicamento.resx">
+      <DependentUpon>frmPopupMedicamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

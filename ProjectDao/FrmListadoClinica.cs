@@ -16,9 +16,9 @@ using System.Runtime.CompilerServices;
 
 namespace ProjectDao
 {
-    public partial class Form1 : Form
+    public partial class FrmListadoClinica : Form
     {
-        public Form1()
+        public FrmListadoClinica()
         {
             InitializeComponent();
         }
@@ -53,6 +53,25 @@ namespace ProjectDao
         {
             Listar();
             txtIdClinica.Text = "";
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            frmPopupClinica ofrmPopupClinica = new frmPopupClinica();
+            ofrmPopupClinica.accion = "Nuevo";
+            //ofrmPopupClinica.accion = "New";
+            ofrmPopupClinica.ShowDialog();
+            if(ofrmPopupClinica.DialogResult.Equals(DialogResult.OK))
+            {
+                Listar();
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            frmPopupClinica ofrmPopupClinica = new frmPopupClinica();
+            ofrmPopupClinica.accion = "Editar";
+            ofrmPopupClinica.ShowDialog();
         }
     }
 }

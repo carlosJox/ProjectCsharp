@@ -1,6 +1,6 @@
 ﻿namespace ProjectDao
 {
-    partial class FrmConsultaMeicamentoPorFormaF
+    partial class FrmListadoMedicamentos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,43 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbxFormaFarm = new System.Windows.Forms.ComboBox();
-            this.dvgConsultaMedi = new System.Windows.Forms.DataGridView();
+            this.dgvMedicam = new System.Windows.Forms.DataGridView();
+            this.radButNombre = new System.Windows.Forms.RadioButton();
+            this.radButConcent = new System.Windows.Forms.RadioButton();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgConsultaMedi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicam)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // dgvMedicam
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 102);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Forma Farmaceutica";
+            this.dgvMedicam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMedicam.Location = new System.Drawing.Point(37, 157);
+            this.dgvMedicam.Name = "dgvMedicam";
+            this.dgvMedicam.Size = new System.Drawing.Size(714, 162);
+            this.dgvMedicam.TabIndex = 0;
             // 
-            // cbxFormaFarm
+            // radButNombre
             // 
-            this.cbxFormaFarm.FormattingEnabled = true;
-            this.cbxFormaFarm.Location = new System.Drawing.Point(121, 99);
-            this.cbxFormaFarm.Name = "cbxFormaFarm";
-            this.cbxFormaFarm.Size = new System.Drawing.Size(195, 21);
-            this.cbxFormaFarm.TabIndex = 1;
-            this.cbxFormaFarm.SelectionChangeCommitted += new System.EventHandler(this.Filtrar);
+            this.radButNombre.AutoSize = true;
+            this.radButNombre.Location = new System.Drawing.Point(42, 111);
+            this.radButNombre.Name = "radButNombre";
+            this.radButNombre.Size = new System.Drawing.Size(62, 17);
+            this.radButNombre.TabIndex = 1;
+            this.radButNombre.TabStop = true;
+            this.radButNombre.Text = "Nombre";
+            this.radButNombre.UseVisualStyleBackColor = true;
             // 
-            // dvgConsultaMedi
+            // radButConcent
             // 
-            this.dvgConsultaMedi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgConsultaMedi.Location = new System.Drawing.Point(34, 144);
-            this.dvgConsultaMedi.Name = "dvgConsultaMedi";
-            this.dvgConsultaMedi.Size = new System.Drawing.Size(597, 172);
-            this.dvgConsultaMedi.TabIndex = 2;
+            this.radButConcent.AutoSize = true;
+            this.radButConcent.Location = new System.Drawing.Point(136, 111);
+            this.radButConcent.Name = "radButConcent";
+            this.radButConcent.Size = new System.Drawing.Size(94, 17);
+            this.radButConcent.TabIndex = 2;
+            this.radButConcent.TabStop = true;
+            this.radButConcent.Text = "Concentracion";
+            this.radButConcent.UseVisualStyleBackColor = true;
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(252, 108);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(201, 20);
+            this.txtValor.TabIndex = 3;
+            this.txtValor.TextChanged += new System.EventHandler(this.filtrar);
             // 
             // flowLayoutPanel1
             // 
@@ -73,7 +86,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnEditar);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel1.Controls.Add(this.btnImprimir);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 1);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 37);
             this.flowLayoutPanel1.TabIndex = 6;
@@ -89,6 +102,7 @@
             this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEditar
             // 
@@ -101,6 +115,7 @@
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -126,19 +141,20 @@
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
             // 
-            // FrmConsultaMeicamentoPorFormaF
+            // FrmListadoMedicamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.dvgConsultaMedi);
-            this.Controls.Add(this.cbxFormaFarm);
-            this.Controls.Add(this.label1);
-            this.Name = "FrmConsultaMeicamentoPorFormaF";
-            this.Text = "FrmConsultaMeicamentoPorFormaF";
-            this.Load += new System.EventHandler(this.FrmConsultaMeicamentoPorFormaF_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dvgConsultaMedi)).EndInit();
+            this.Controls.Add(this.txtValor);
+            this.Controls.Add(this.radButConcent);
+            this.Controls.Add(this.radButNombre);
+            this.Controls.Add(this.dgvMedicam);
+            this.Name = "FrmListadoMedicamentos";
+            this.Text = "FrmListadoMedicamentos";
+            this.Load += new System.EventHandler(this.FrmListadoMedicamentos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicam)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -147,9 +163,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxFormaFarm;
-        private System.Windows.Forms.DataGridView dvgConsultaMedi;
+        private System.Windows.Forms.DataGridView dgvMedicam;
+        private System.Windows.Forms.RadioButton radButNombre;
+        private System.Windows.Forms.RadioButton radButConcent;
+        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;

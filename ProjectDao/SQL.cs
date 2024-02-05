@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -60,5 +62,52 @@ namespace ProjectDao.Utilitarios
             combo.DisplayMember = displayMember;
             combo.ValueMember = valueMember;
         }
+
+        public static int registrarAcuaRlizaYeliminar(string nombreProcedure, ArrayList parametros,ArrayList valores)
+        {
+            
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnx"].ConnectionString);
+            cn.Open(); //Abrir conexion
+            SqlCommand cmd = new SqlCommand(nombreProcedure,cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+                 for(int i = 0; i < parametros.Count; i++)
+                {
+                    cmd.Parameters.AddWithValue(parametros[i].ToString(), valores[i]);
+                }
+                  int resultado = cmd.ExecuteNonQuery();//Ejecuta la consulta y devuelve 1 si hizo la insercion y 0 si no 
+                     cn.Close();
+                return resultado;
+        }
+
+        //Validacion 'La función es estática, lo que significa que puede ser llamada sin necesidad de crear una instancia de la clase que la contiene.'
+        public static bool validarRequeridos(Control.ControlCollection controles, ErrorProvider error)
+        {
+            bool exito = true;
+            int ncontroles = controles.Count; //Numero de controles q se han pasado
+            Control control; 
+            for (int i = 0; i < ncontroles;i++)
+            {
+                control= controles[i];
+                if(control is TextBox)
+                {
+                    if(control.Tag != null && control.Tag.ToString().Equals("O")) //O colocada en la propiedad Tag
+                    {
+                        if(((TextBox)control).Text.Equals(""))
+                        {
+                            error.SetError(control, "INGRESE DATOS");
+                            exito = false;
+                        }
+                        else
+                        {
+                            error.SetError(control, "");
+                        }
+                    }
+                }
+            }
+            return exito;
+
+        }
+        
+
     }
 }

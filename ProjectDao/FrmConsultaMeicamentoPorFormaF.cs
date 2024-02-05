@@ -23,6 +23,8 @@ namespace ProjectDao
         private void FrmConsultaMeicamentoPorFormaF_Load(object sender, EventArgs e)
         {
             SQL.LlenarComboBox("USPLLENARCOMBOFORMAFARMACEUTICA", cbxFormaFarm);
+
+            SQL.ListarProcedure("USPLISTARMEDICAMENTOS", dvgConsultaMedi);
                 /*
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnx"].ConnectionString);
             SqlCommand cmd = new SqlCommand("USPLLENARCOMBOFORMAFARMACEUTICA", cn);
@@ -34,8 +36,13 @@ namespace ProjectDao
             cbxFormaFarm.DisplayMember = "NOMBRE";
             cbxFormaFarm.ValueMember = "IIDFORMAFARMACEUTICA";
                 */
+      
+        }
 
-        
+        private void Filtrar(object sender, EventArgs e)
+        {
+           string idforma=cbxFormaFarm.SelectedValue.ToString();
+            SQL.FiltradoDatos("USPLCONSULTARMEDICAMENTOSPORFORMAFARMACEUTICA", "IIDFORMAFARMACEUTICA", idforma,dvgConsultaMedi);
         }
     }
 }

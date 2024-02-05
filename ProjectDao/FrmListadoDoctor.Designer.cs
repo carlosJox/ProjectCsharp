@@ -1,6 +1,6 @@
 ﻿namespace ProjectDao
 {
-    partial class FrmConsultaMeicamentoPorFormaF
+    partial class FrmListadoDoctor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,43 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbxFormaFarm = new System.Windows.Forms.ComboBox();
-            this.dvgConsultaMedi = new System.Windows.Forms.DataGridView();
+            this.dgvDoctors = new System.Windows.Forms.DataGridView();
+            this.rbtAPaterno = new System.Windows.Forms.RadioButton();
+            this.rbtAmaterno = new System.Windows.Forms.RadioButton();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgConsultaMedi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDoctors)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // dgvDoctors
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 102);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Forma Farmaceutica";
+            this.dgvDoctors.AllowUserToAddRows = false;
+            this.dgvDoctors.BackgroundColor = System.Drawing.Color.PaleTurquoise;
+            this.dgvDoctors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDoctors.Location = new System.Drawing.Point(18, 164);
+            this.dgvDoctors.Name = "dgvDoctors";
+            this.dgvDoctors.ReadOnly = true;
+            this.dgvDoctors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDoctors.Size = new System.Drawing.Size(741, 149);
+            this.dgvDoctors.TabIndex = 0;
             // 
-            // cbxFormaFarm
+            // rbtAPaterno
             // 
-            this.cbxFormaFarm.FormattingEnabled = true;
-            this.cbxFormaFarm.Location = new System.Drawing.Point(121, 99);
-            this.cbxFormaFarm.Name = "cbxFormaFarm";
-            this.cbxFormaFarm.Size = new System.Drawing.Size(195, 21);
-            this.cbxFormaFarm.TabIndex = 1;
-            this.cbxFormaFarm.SelectionChangeCommitted += new System.EventHandler(this.Filtrar);
+            this.rbtAPaterno.AutoSize = true;
+            this.rbtAPaterno.Location = new System.Drawing.Point(29, 119);
+            this.rbtAPaterno.Name = "rbtAPaterno";
+            this.rbtAPaterno.Size = new System.Drawing.Size(99, 17);
+            this.rbtAPaterno.TabIndex = 1;
+            this.rbtAPaterno.TabStop = true;
+            this.rbtAPaterno.Text = "ApellidoPaterno";
+            this.rbtAPaterno.UseVisualStyleBackColor = true;
             // 
-            // dvgConsultaMedi
+            // rbtAmaterno
             // 
-            this.dvgConsultaMedi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgConsultaMedi.Location = new System.Drawing.Point(34, 144);
-            this.dvgConsultaMedi.Name = "dvgConsultaMedi";
-            this.dvgConsultaMedi.Size = new System.Drawing.Size(597, 172);
-            this.dvgConsultaMedi.TabIndex = 2;
+            this.rbtAmaterno.AutoSize = true;
+            this.rbtAmaterno.Location = new System.Drawing.Point(150, 119);
+            this.rbtAmaterno.Name = "rbtAmaterno";
+            this.rbtAmaterno.Size = new System.Drawing.Size(101, 17);
+            this.rbtAmaterno.TabIndex = 2;
+            this.rbtAmaterno.TabStop = true;
+            this.rbtAmaterno.Text = "ApellidoMaterno";
+            this.rbtAmaterno.UseVisualStyleBackColor = true;
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(268, 116);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(177, 20);
+            this.txtValor.TabIndex = 3;
+            this.txtValor.TextChanged += new System.EventHandler(this.filtrar);
             // 
             // flowLayoutPanel1
             // 
@@ -126,19 +143,20 @@
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
             // 
-            // FrmConsultaMeicamentoPorFormaF
+            // FrmListadoDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.dvgConsultaMedi);
-            this.Controls.Add(this.cbxFormaFarm);
-            this.Controls.Add(this.label1);
-            this.Name = "FrmConsultaMeicamentoPorFormaF";
-            this.Text = "FrmConsultaMeicamentoPorFormaF";
-            this.Load += new System.EventHandler(this.FrmConsultaMeicamentoPorFormaF_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dvgConsultaMedi)).EndInit();
+            this.Controls.Add(this.txtValor);
+            this.Controls.Add(this.rbtAmaterno);
+            this.Controls.Add(this.rbtAPaterno);
+            this.Controls.Add(this.dgvDoctors);
+            this.Name = "FrmListadoDoctor";
+            this.Text = "FrmListadoDoctor";
+            this.Load += new System.EventHandler(this.FrmListadoDoctor_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDoctors)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -147,9 +165,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxFormaFarm;
-        private System.Windows.Forms.DataGridView dvgConsultaMedi;
+        private System.Windows.Forms.DataGridView dgvDoctors;
+        private System.Windows.Forms.RadioButton rbtAPaterno;
+        private System.Windows.Forms.RadioButton rbtAmaterno;
+        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;

@@ -1,6 +1,6 @@
 ﻿namespace ProjectDao
 {
-    partial class FrmConsultaMeicamentoPorFormaF
+    partial class FrmConsultaMedicoPorEspecialiad
     {
         /// <summary>
         /// Required designer variable.
@@ -29,42 +29,52 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.cbxFormaFarm = new System.Windows.Forms.ComboBox();
-            this.dvgConsultaMedi = new System.Windows.Forms.DataGridView();
+            this.cbxEspecialidad = new System.Windows.Forms.ComboBox();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.dvgMedicos = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgConsultaMedi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgMedicos)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 102);
+            this.label1.Location = new System.Drawing.Point(22, 99);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.Size = new System.Drawing.Size(105, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Forma Farmaceutica";
+            this.label1.Text = "Ingrese Especialidad";
             // 
-            // cbxFormaFarm
+            // cbxEspecialidad
             // 
-            this.cbxFormaFarm.FormattingEnabled = true;
-            this.cbxFormaFarm.Location = new System.Drawing.Point(121, 99);
-            this.cbxFormaFarm.Name = "cbxFormaFarm";
-            this.cbxFormaFarm.Size = new System.Drawing.Size(195, 21);
-            this.cbxFormaFarm.TabIndex = 1;
-            this.cbxFormaFarm.SelectionChangeCommitted += new System.EventHandler(this.Filtrar);
+            this.cbxEspecialidad.FormattingEnabled = true;
+            this.cbxEspecialidad.Location = new System.Drawing.Point(144, 96);
+            this.cbxEspecialidad.Name = "cbxEspecialidad";
+            this.cbxEspecialidad.Size = new System.Drawing.Size(121, 21);
+            this.cbxEspecialidad.TabIndex = 1;
             // 
-            // dvgConsultaMedi
+            // btnConsultar
             // 
-            this.dvgConsultaMedi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgConsultaMedi.Location = new System.Drawing.Point(34, 144);
-            this.dvgConsultaMedi.Name = "dvgConsultaMedi";
-            this.dvgConsultaMedi.Size = new System.Drawing.Size(597, 172);
-            this.dvgConsultaMedi.TabIndex = 2;
+            this.btnConsultar.Location = new System.Drawing.Point(289, 96);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultar.TabIndex = 2;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // dvgMedicos
+            // 
+            this.dvgMedicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgMedicos.Location = new System.Drawing.Point(39, 152);
+            this.dvgMedicos.Name = "dvgMedicos";
+            this.dvgMedicos.Size = new System.Drawing.Size(564, 124);
+            this.dvgMedicos.TabIndex = 3;
             // 
             // flowLayoutPanel1
             // 
@@ -73,7 +83,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnEditar);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel1.Controls.Add(this.btnImprimir);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 1);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 37);
             this.flowLayoutPanel1.TabIndex = 6;
@@ -126,19 +136,20 @@
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
             // 
-            // FrmConsultaMeicamentoPorFormaF
+            // FrmConsultaMedicoPorEspecialiad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.dvgConsultaMedi);
-            this.Controls.Add(this.cbxFormaFarm);
+            this.Controls.Add(this.dvgMedicos);
+            this.Controls.Add(this.btnConsultar);
+            this.Controls.Add(this.cbxEspecialidad);
             this.Controls.Add(this.label1);
-            this.Name = "FrmConsultaMeicamentoPorFormaF";
-            this.Text = "FrmConsultaMeicamentoPorFormaF";
-            this.Load += new System.EventHandler(this.FrmConsultaMeicamentoPorFormaF_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dvgConsultaMedi)).EndInit();
+            this.Name = "FrmConsultaMedicoPorEspecialiad";
+            this.Text = "FrmConsultaMedicoPorEspecialiad";
+            this.Load += new System.EventHandler(this.FrmConsultaMedicoPorEspecialiad_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dvgMedicos)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -148,8 +159,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxFormaFarm;
-        private System.Windows.Forms.DataGridView dvgConsultaMedi;
+        private System.Windows.Forms.ComboBox cbxEspecialidad;
+        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.DataGridView dvgMedicos;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
