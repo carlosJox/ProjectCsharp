@@ -74,8 +74,8 @@ namespace ProjectDao.Utilitarios
                 {
                     cmd.Parameters.AddWithValue(parametros[i].ToString(), valores[i]);
                 }
-                  int resultado = cmd.ExecuteNonQuery();//Ejecuta la consulta y devuelve 1 si hizo la insercion y 0 si no 
-                     cn.Close();
+             int resultado = cmd.ExecuteNonQuery();//Ejecuta la consulta y devuelve 1 si hizo la insercion y 0 si no 
+             cn.Close();
                 return resultado;
         }
 
@@ -95,6 +95,21 @@ namespace ProjectDao.Utilitarios
                         if(((TextBox)control).Text.Equals(""))
                         {
                             error.SetError(control, "INGRESE DATOS");
+                            exito = false;
+                        }
+                        else
+                        {
+                            error.SetError(control, "");
+                        }
+                    }
+                }else if (control is NumericUpDown)
+                {
+
+                    if (control.Tag != null && control.Tag.ToString().Equals("O")) //O colocada en la propiedad Tag
+                    {
+                        if (((NumericUpDown)control).Value.Equals(0))
+                        {
+                            error.SetError(control, "INGRESE DATOS no puede ir en 0");
                             exito = false;
                         }
                         else

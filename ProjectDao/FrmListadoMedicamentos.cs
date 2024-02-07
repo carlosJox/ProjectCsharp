@@ -41,6 +41,10 @@ namespace ProjectDao
             frmPopupMedicamento ofrmPopupMedicamento = new frmPopupMedicamento();
             ofrmPopupMedicamento.accion = "Nuevo";
             ofrmPopupMedicamento.ShowDialog();
+            if (ofrmPopupMedicamento.DialogResult.Equals(DialogResult.OK))
+            {
+                SQL.ListarProcedure("uspListarMedicamentoPrograma", dgvMedicam);
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

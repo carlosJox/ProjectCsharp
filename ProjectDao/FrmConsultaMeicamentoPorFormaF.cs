@@ -44,5 +44,10 @@ namespace ProjectDao
            string idforma=cbxFormaFarm.SelectedValue.ToString();
             SQL.FiltradoDatos("USPLCONSULTARMEDICAMENTOSPORFORMAFARMACEUTICA", "IIDFORMAFARMACEUTICA", idforma,dvgConsultaMedi);
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

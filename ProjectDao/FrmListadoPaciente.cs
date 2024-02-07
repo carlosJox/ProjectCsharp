@@ -43,5 +43,11 @@ namespace ProjectDao
                 SQL.FiltradoDatos("uspConsultarPacientesProgramaPorApMaterno", "@ApMaterno", valor, dgvPaciente);
             }
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmPopupPaciente ofrmPopupPaciente = new FrmPopupPaciente();
+            //ofrmPopupPaciente.accion("Nuevo");
+        }
     }
 }
