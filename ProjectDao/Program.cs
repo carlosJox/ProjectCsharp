@@ -16,7 +16,7 @@ namespace ProjectDao
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmListadoMedicamentos());
+            Application.Run(new FrmListadoDoctor());
         }
     }
 }

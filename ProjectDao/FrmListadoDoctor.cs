@@ -35,5 +35,14 @@ namespace ProjectDao
                 SQL.FiltradoDatos("uspConsultaDoctorPorApMaterno", "@apMaterno", valor, dgvDoctors);
             }
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmPopupDoctor ofrmPopupDoctor = new FrmPopupDoctor();
+            ofrmPopupDoctor.accion = "Nuevo";
+            //ofrmPopupClinica.accion = "New";
+            ofrmPopupDoctor.ShowDialog();
+            if (ofrmPopupDoctor.DialogResult.Equals(DialogResult.OK)) ;
+        }
     }
 }

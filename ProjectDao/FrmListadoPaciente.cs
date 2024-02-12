@@ -13,6 +13,7 @@ namespace ProjectDao
 {
     public partial class FrmListadoPaciente : Form
     {
+  
         public FrmListadoPaciente()
         {
             InitializeComponent();
@@ -46,8 +47,20 @@ namespace ProjectDao
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            FrmPopupPaciente ofrmPopupPaciente = new FrmPopupPaciente();
-            //ofrmPopupPaciente.accion("Nuevo");
+            campo ofrmPopupPacient = new campo();
+            ofrmPopupPacient.accion = "Nuevo";
+            ofrmPopupPacient.ShowDialog();
+            if (ofrmPopupPacient.DialogResult.Equals(DialogResult.OK))
+            {
+                SQL.ListarProcedure("uspListarPacientesPrograma", dgvPaciente);
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            campo ofrmPopupPacient = new campo();
+            ofrmPopupPacient.accion = "Editar";
+            ofrmPopupPacient.ShowDialog();
         }
     }
 }

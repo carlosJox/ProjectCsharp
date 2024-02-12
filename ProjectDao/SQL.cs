@@ -51,13 +51,20 @@ namespace ProjectDao.Utilitarios
             grilla.DataSource = tabla; //Llenar contenido
         }
 
-        public static void LlenarComboBox(string nombreProcedure, ComboBox combo, string displayMember ="Nombre", string valueMember = "Id")
+        public static void LlenarComboBox(string nombreProcedure, ComboBox combo, string displayMember ="Nombre", string valueMember = "Id",bool primerValor = false)
         {
             SqlCommand cmd = new SqlCommand(nombreProcedure, cn);
             cmd.CommandType = CommandType.StoredProcedure;
             DataTable tabla = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(cmd); //Ejecutar consulta 'cmd'
             sda.Fill(tabla);
+            if (primerValor == true)
+            {
+                DataRow fila = tabla.NewRow();
+                fila[0] = 0;
+                fila[1] = "--Seleccione--";
+                tabla.Rows.InsertAt(fila,0);
+            }
             combo.DataSource = tabla; //Llenar contenido
             combo.DisplayMember = displayMember;
             combo.ValueMember = valueMember;
@@ -102,12 +109,42 @@ namespace ProjectDao.Utilitarios
                             error.SetError(control, "");
                         }
                     }
-                }else if (control is NumericUpDown)
+                }else if (control is PictureBox)
                 {
 
                     if (control.Tag != null && control.Tag.ToString().Equals("O")) //O colocada en la propiedad Tag
                     {
+                        if (((PictureBox)control).Image==null)
+                        {
+                            error.SetError(control, "INGRESE DATOS no puede ir en 0");
+                            exito = false;
+                        }
+                        else
+                        {
+                            error.SetError(control, "");
+                        }
+                    }
+                }
+                else if (control is NumericUpDown)
+                {
+                    if (control.Tag != null && control.Tag.ToString().Equals("O")) //O colocada en la propiedad Tag
+                    {
                         if (((NumericUpDown)control).Value.Equals(0))
+                        {
+                            error.SetError(control, "INGRESE DATOS no puede ir en 0");
+                            exito = false;
+                        }
+                        else
+                        {
+                            error.SetError(control, "");
+                        }
+                    }
+                }
+                else if (control is ComboBox)
+                {
+                    if (control.Tag != null && control.Tag.ToString().Equals("O")) //O colocada en la propiedad Tag
+                    {
+                        if (((ComboBox)control).SelectedValue.ToString().Equals("0"))
                         {
                             error.SetError(control, "INGRESE DATOS no puede ir en 0");
                             exito = false;

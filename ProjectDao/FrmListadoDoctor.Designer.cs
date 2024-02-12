@@ -56,7 +56,7 @@
             // rbtAPaterno
             // 
             this.rbtAPaterno.AutoSize = true;
-            this.rbtAPaterno.Location = new System.Drawing.Point(29, 119);
+            this.rbtAPaterno.Location = new System.Drawing.Point(18, 130);
             this.rbtAPaterno.Name = "rbtAPaterno";
             this.rbtAPaterno.Size = new System.Drawing.Size(99, 17);
             this.rbtAPaterno.TabIndex = 1;
@@ -67,7 +67,7 @@
             // rbtAmaterno
             // 
             this.rbtAmaterno.AutoSize = true;
-            this.rbtAmaterno.Location = new System.Drawing.Point(150, 119);
+            this.rbtAmaterno.Location = new System.Drawing.Point(139, 130);
             this.rbtAmaterno.Name = "rbtAmaterno";
             this.rbtAmaterno.Size = new System.Drawing.Size(101, 17);
             this.rbtAmaterno.TabIndex = 2;
@@ -77,7 +77,7 @@
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(268, 116);
+            this.txtValor.Location = new System.Drawing.Point(257, 127);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(177, 20);
             this.txtValor.TabIndex = 3;
@@ -106,6 +106,7 @@
             this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEditar
             // 

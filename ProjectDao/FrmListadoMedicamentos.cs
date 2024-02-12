@@ -38,6 +38,7 @@ namespace ProjectDao
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            
             frmPopupMedicamento ofrmPopupMedicamento = new frmPopupMedicamento();
             ofrmPopupMedicamento.accion = "Nuevo";
             ofrmPopupMedicamento.ShowDialog();
