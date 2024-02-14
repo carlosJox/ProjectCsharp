@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateFechaNac = new System.Windows.Forms.DateTimePicker();
+            this.components = new System.ComponentModel.Container();
+            this.dtFechaContrat = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.cbxClinica = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -49,25 +50,29 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxEspec = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numSueldo = new System.Windows.Forms.NumericUpDown();
             this.bwDoctor = new System.Windows.Forms.WebBrowser();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCargarImg = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.txtIdDoctor = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.errorDatos = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.numSueldo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorDatos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dateFechaNac
+            // dtFechaContrat
             // 
-            this.dateFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFechaNac.Location = new System.Drawing.Point(439, 268);
-            this.dateFechaNac.Name = "dateFechaNac";
-            this.dateFechaNac.Size = new System.Drawing.Size(172, 20);
-            this.dateFechaNac.TabIndex = 62;
+            this.dtFechaContrat.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaContrat.Location = new System.Drawing.Point(439, 268);
+            this.dtFechaContrat.Name = "dtFechaContrat";
+            this.dtFechaContrat.Size = new System.Drawing.Size(172, 20);
+            this.dtFechaContrat.TabIndex = 62;
             // 
             // label17
             // 
@@ -87,6 +92,7 @@
             this.cbxClinica.Name = "cbxClinica";
             this.cbxClinica.Size = new System.Drawing.Size(171, 21);
             this.cbxClinica.TabIndex = 56;
+            this.cbxClinica.Tag = "O";
             // 
             // label13
             // 
@@ -253,19 +259,20 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Maiandra GD", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(41, 27);
+            this.label1.Location = new System.Drawing.Point(33, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 25);
             this.label1.TabIndex = 63;
             this.label1.Text = "REGISTRO DOCTOR";
             // 
-            // comboBox1
+            // cbxEspec
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(143, 202);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(171, 21);
-            this.comboBox1.TabIndex = 65;
+            this.cbxEspec.FormattingEnabled = true;
+            this.cbxEspec.Location = new System.Drawing.Point(143, 202);
+            this.cbxEspec.Name = "cbxEspec";
+            this.cbxEspec.Size = new System.Drawing.Size(171, 21);
+            this.cbxEspec.TabIndex = 65;
+            this.cbxEspec.Tag = "O";
             // 
             // label7
             // 
@@ -289,12 +296,12 @@
             this.label16.TabIndex = 66;
             this.label16.Text = "Sueldo";
             // 
-            // numericUpDown1
+            // numSueldo
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(143, 248);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 67;
+            this.numSueldo.Location = new System.Drawing.Point(143, 248);
+            this.numSueldo.Name = "numSueldo";
+            this.numSueldo.Size = new System.Drawing.Size(120, 20);
+            this.numSueldo.TabIndex = 67;
             // 
             // bwDoctor
             // 
@@ -350,22 +357,48 @@
             this.label10.TabIndex = 71;
             this.label10.Text = "Archivo🎴";
             // 
+            // txtIdDoctor
+            // 
+            this.txtIdDoctor.Location = new System.Drawing.Point(143, 42);
+            this.txtIdDoctor.Name = "txtIdDoctor";
+            this.txtIdDoctor.ReadOnly = true;
+            this.txtIdDoctor.Size = new System.Drawing.Size(80, 20);
+            this.txtIdDoctor.TabIndex = 74;
+            this.txtIdDoctor.Tag = "O";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Blue;
+            this.label11.Location = new System.Drawing.Point(66, 46);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 16);
+            this.label11.TabIndex = 73;
+            this.label11.Text = "Id Doctor";
+            // 
+            // errorDatos
+            // 
+            this.errorDatos.ContainerControl = this;
+            // 
             // FrmPopupDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 466);
+            this.Controls.Add(this.txtIdDoctor);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.btnCargarImg);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.bwDoctor);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numSueldo);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxEspec);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateFechaNac);
+            this.Controls.Add(this.dtFechaContrat);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.cbxClinica);
             this.Controls.Add(this.label13);
@@ -386,8 +419,11 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label2);
             this.Name = "FrmPopupDoctor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPopupDoctor";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmPopupDoctor_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numSueldo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,7 +431,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateFechaNac;
+        private System.Windows.Forms.DateTimePicker dtFechaContrat;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox cbxClinica;
         private System.Windows.Forms.Label label13;
@@ -416,14 +452,17 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxEspec;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numSueldo;
         private System.Windows.Forms.WebBrowser bwDoctor;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCargarImg;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtIdDoctor;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ErrorProvider errorDatos;
     }
 }

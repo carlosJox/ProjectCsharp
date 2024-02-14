@@ -155,6 +155,7 @@
             this.Controls.Add(this.rbtAPaterno);
             this.Controls.Add(this.dgvDoctors);
             this.Name = "FrmListadoDoctor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmListadoDoctor";
             this.Load += new System.EventHandler(this.FrmListadoDoctor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoctors)).EndInit();
