@@ -71,7 +71,62 @@ namespace ProjectDao
         {
             frmPopupClinica ofrmPopupClinica = new frmPopupClinica();
             ofrmPopupClinica.accion = "Editar";
+            ofrmPopupClinica.id = dgvClinic.CurrentRow.Cells[0].Value.ToString();
             ofrmPopupClinica.ShowDialog();
+            if(ofrmPopupClinica.DialogResult.Equals(DialogResult.OK))
+            {
+                Listar();
+            }
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string id =dgvClinic.CurrentRow.Cells[0].Value.ToString();
+
+            if (MessageBox.Show("Desea Eliminar ", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+            {
+                int n = SQL.registrarAcuaRlizaYeliminar("uspeliminarclinica",
+                      new System.Collections.ArrayList { "@IDCLINICA" },
+                      new System.Collections.ArrayList { id }
+                      ); ;
+                if (n == 1)
+                {
+                    MessageBox.Show("Delete Succes");
+                    Listar();
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrio un Error");
+                }
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            ppd.Document = printDoct;
+            ppd.ShowDialog();
+        }
+        int contador;
+        private void iniciarContador(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            contador = 0;
+        }
+
+        private void iniciarConfiguracion(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Font fuente = new Font("Arial", 10);
+            int espaciado = 10;
+            int altoLinea= (int)fuente.GetHeight()+espaciado;
+            int totalLineasPAgina = e.MarginBounds.Height / altoLinea;
+
+            int x = e.MarginBounds.Left;
+            int y = e.MarginBounds.Top;
+
+            int ncolums = dgvClinic.Columns.Count;
+
+
         }
     }
 }

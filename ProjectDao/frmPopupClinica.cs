@@ -36,11 +36,16 @@ namespace ProjectDao
             else
             {
                 this.Text = "Editar Clinica";
+                DataTable tabla= SQL.obtenerDatos("uspObtenerDatosClinica", "@idclinica", id);
+                txtIdClinica.Text = tabla.Rows[0][0].ToString();
+                txtNombre.Text = tabla.Rows[0][1].ToString();
+                txtDireccion.Text = tabla.Rows[0][2].ToString();
             }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            string id =txtIdClinica.Text;
             string nombre = txtNombre.Text; ;
             string direccion = txtDireccion.Text;
             bool exito = SQL.validarRequeridos(this.Controls, errorDatos);
@@ -76,8 +81,25 @@ namespace ProjectDao
                         MessageBox.Show("ya se encuentra registrada la sede");
                         this.DialogResult = DialogResult.None;
                     }
-             //   cn.Close();
+                //   cn.Close();
 
+            }
+            else
+            {
+                //Actualizar 
+                int resultado = SQL.registrarAcuaRlizaYeliminar("uspActualizarClinica",
+                                new ArrayList { "@idclinica","@nombre", "direccion" },
+                                new ArrayList { id,nombre, direccion }
+                                );
+                if (resultado == 1)
+                {
+                    MessageBox.Show("Update Succes");
+                }
+                else
+                {
+                    MessageBox.Show("ya se encuentra registrada la sede");
+                    this.DialogResult = DialogResult.None;
+                }
             }
         }
     }

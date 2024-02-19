@@ -82,6 +82,7 @@
             // 
             // txtIdPac
             // 
+            this.txtIdPac.Enabled = false;
             this.txtIdPac.Location = new System.Drawing.Point(137, 39);
             this.txtIdPac.Name = "txtIdPac";
             this.txtIdPac.Size = new System.Drawing.Size(100, 20);

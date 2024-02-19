@@ -37,6 +37,32 @@ namespace ProjectDao
             else
             {
                 this.Text = "Editar Paciente";
+                DataTable tabla= SQL.obtenerDatos("uspObtenerPaciente", "@idpaciente", id);
+                txtIdPac.Text = tabla.Rows[0][0].ToString();
+                txtNombre.Text = tabla.Rows[0][1].ToString();
+                txtApePat.Text = tabla.Rows[0][2].ToString();
+                txtApMat.Text = tabla.Rows[0][3].ToString();
+                txtEmail.Text = tabla.Rows[0][4].ToString();
+                txtDireccion.Text = tabla.Rows[0][5].ToString();
+                txtTelfijo.Text = tabla.Rows[0][6].ToString();
+                ttxtCelular.Text = tabla.Rows[0][7].ToString();
+                dateFechaNac.Value = DateTime.Parse(tabla.Rows[0][8].ToString());
+                cbxSexo.SelectedValue = tabla.Rows[0][9].ToString();
+                cbxTipoSan.SelectedValue = tabla.Rows[0][10].ToString();
+                txtAlergias.Text = tabla.Rows[0][11].ToString();
+                txtEnfermeds.Text = tabla.Rows[0][12].ToString();
+                txtVacunas.Text = tabla.Rows[0][13].ToString();
+                txtAntecedent.Text = tabla.Rows[0][14].ToString();
+                if (!tabla.Rows[0][15].ToString().Equals(""))
+                {
+                    //Actualiza foto y valida en caso q no tenga cargada
+                    buffer = (byte[])tabla.Rows[0][15];
+                    using (MemoryStream ms = new MemoryStream(buffer))
+                    {
+                        imgFoto.Image = Image.FromStream(ms);
+                    }
+                }
+
             }
         }
 
@@ -52,6 +78,7 @@ namespace ProjectDao
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            string idPact = txtIdPac.Text;
             string nombre = txtNombre.Text;
             string apPateno = txtApePat.Text;
             string apMaterno = txtApMat.Text;
@@ -75,8 +102,10 @@ namespace ProjectDao
                 this.DialogResult = DialogResult.None;
                 return;
             }
+            if (accion.Equals("Nuevo"))
+            {
 
-            int n = SQL.registrarAcuaRlizaYeliminar("USPINSERTARPACIENTE",
+                int n = SQL.registrarAcuaRlizaYeliminar("USPINSERTARPACIENTE",
             new System.Collections.ArrayList
             {
             "@NOMBRE","@APPATERNO","@APMATERNO","@EMAIL","@DIRECCION","@TELEFONOFIJO","@TELEFONOCELULAR",
@@ -90,14 +119,43 @@ namespace ProjectDao
                 antecedentes,buffer
             }
             );
-            if ( n == 1 ) {
-                MessageBox.Show("Se agrego Correctamente");
+                if (n == 1)
+                {
+                    MessageBox.Show("Se agrego Correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Ya existe el Paciente");
+                    this.DialogResult = DialogResult.None;
+                    return;
+                }
             }
             else
             {
-                MessageBox.Show("Ya existe el Paciente");
-                this.DialogResult = DialogResult.None;
-                return;
+                int n = SQL.registrarAcuaRlizaYeliminar("USPACTUALIZARPACIENTE",
+           new System.Collections.ArrayList
+           {
+            "@IDPACIENTE","@NOMBRE","@APPATERNO","@APMATERNO","@EMAIL","@DIRECCION","@TELEFONOFIJO","@TELEFONOCELULAR",
+            "@FECHANACIMIENTO","@IIDSEXO","@IIDTIPOSANGRE","@ALERGIAS","@ENFERMEDADESCRONICAS","@CUADRODEVACUNAS",
+            "@ANTECENTES","@FOTO"
+               },
+           new System.Collections.ArrayList
+           {
+                idPact,nombre,apPateno,apMaterno,email,direccion,telfijo,celular,
+                fechaNac,idsexo,idTipoSan,alergias,enfermedades,cuadroVacunas,
+                antecedentes,buffer
+           }
+           );
+                if (n == 1)
+                {
+                    MessageBox.Show("... Update Succes..");
+                }
+                else
+                {
+                    MessageBox.Show("Ya existe el Paciente");
+                    this.DialogResult = DialogResult.None;
+                    return;
+                }
             }
         }
 

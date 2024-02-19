@@ -36,6 +36,10 @@ namespace ProjectDao
             }
         }
 
+        private void Listar()
+        {
+            SQL.ListarProcedure("uspListarMedicamentoPrograma", dgvMedicam);
+        }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             
@@ -44,7 +48,7 @@ namespace ProjectDao
             ofrmPopupMedicamento.ShowDialog();
             if (ofrmPopupMedicamento.DialogResult.Equals(DialogResult.OK))
             {
-                SQL.ListarProcedure("uspListarMedicamentoPrograma", dgvMedicam);
+                Listar();
             }
         }
 
@@ -52,7 +56,27 @@ namespace ProjectDao
         {
             frmPopupMedicamento ofrmPopupMedicamento = new frmPopupMedicamento();
             ofrmPopupMedicamento.accion = "Editar";
+            ofrmPopupMedicamento.id = dgvMedicam.CurrentRow.Cells[0].Value.ToString();
             ofrmPopupMedicamento.ShowDialog();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string id = dgvMedicam.CurrentRow.Cells[0].Value.ToString();
+            if(MessageBox.Show("Desea Eliminar ", "Aviso", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
+            {
+                int n= SQL.Eliminar("uspeliminarmedicamento", "@idmedicamento", id);   
+                if(n == 1)
+                {
+                    MessageBox.Show("Update Success");
+                    Listar();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Not Update Success");
+                }
+            } 
         }
     }
 }

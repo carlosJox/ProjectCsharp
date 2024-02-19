@@ -33,10 +33,37 @@ namespace ProjectDao
             else
             {
                 this.Text = "Actualizar Doctor";
+                DataTable tabla= SQL.obtenerDatos("USPOBTENERDOCTOR", "@IIDDOCTOR", id);
+                txtIdDoctor.Text = tabla.Rows[0][0].ToString();
+                txtNombre.Text = tabla.Rows[0][1].ToString();
+                txtApePat.Text = tabla.Rows[0][2].ToString();
+                txtApMat.Text = tabla.Rows[0][3].ToString();
+                cbxClinica.SelectedValue = tabla.Rows[0][4].ToString();
+                cbxEspec.SelectedValue = tabla.Rows[0][5].ToString();
+                txtEmail.Text = tabla.Rows[0][6].ToString();
+                ttxtCelular.Text = tabla.Rows[0][7].ToString();
+                cbxSexo.SelectedValue = tabla.Rows[0][8].ToString();
+                numSueldo.Value = decimal.Parse(tabla.Rows[0][9].ToString());
+                dtFechaContrat.Value = DateTime.Parse(tabla.Rows[0][10].ToString());
+            
+                //Recuperar foto
+                string nombreArchivo = tabla.Rows[0][12].ToString();
+                string ruta = @"C:\";
+                if (tabla.Rows[0][11].ToString() !="")
+                {
+                    ruta = Path.Combine(ruta, nombreArchivo);
+                    buffer = (byte[])tabla.Rows[0][11];
+                    File.WriteAllBytes(ruta, buffer);
+                    
+                    bwDoctor.Navigate(ruta);
+
+                }
+                
             }
 
         }
-
+        //Variable global
+        string ruta;
         private void btnCargarImg_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -45,7 +72,7 @@ namespace ProjectDao
             if (ofd.ShowDialog().Equals(DialogResult.OK))
             {
                 //Prewie del archivo
-                string ruta = ofd.FileName;
+                ruta = ofd.FileName;
                 buffer = File.ReadAllBytes(ruta);
                 bwDoctor.Navigate(ruta);    
 
@@ -55,46 +82,80 @@ namespace ProjectDao
         byte[] buffer = null;
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            string idDoctor = txtIdDoctor.Text;
             string nombre = txtNombre.Text;
-            string apPaterno= txtApePat.Text;
+            string apPaterno = txtApePat.Text;
             string apMaterno = txtApMat.Text;
             string idclinica = cbxClinica.SelectedValue.ToString();
             string idespecialidad = cbxEspec.SelectedValue.ToString();
             string email = txtEmail.Text;
-            string celular =ttxtCelular.Text;
+            string celular = ttxtCelular.Text;
             string idsexo = cbxSexo.SelectedValue.ToString();
             decimal sueldo = numSueldo.Value;
             DateTime fechaContrato = dtFechaContrat.Value;
 
-           bool exito= SQL.validarRequeridos(this.Controls, errorDatos);
-            if(!exito)
+            bool exito = SQL.validarRequeridos(this.Controls, errorDatos);
+            if (!exito)
             {
                 this.DialogResult = DialogResult.None;
                 return;
             }
-
-            int n = SQL.registrarAcuaRlizaYeliminar("USPINSERTARDOCTOR",
-                    new System.Collections.ArrayList
-                    {
-                            "@NOMBRE","@APPATERNO","@APMATERNO","IIDCLINICA","IIDESPECIALIDAD",
-                        "@EMAIL","@TELEFONOCELULAR","@IIDSEXO","@SUELDO",
-                        "@FECHACONTRATO","@ARCHIVO"
-                    },
-                    new System.Collections.ArrayList
-                    {
-                      nombre,apPaterno,apMaterno,idclinica,idespecialidad,email,celular,
-                        idsexo,sueldo, fechaContrato,buffer
-                    } );
-            
-            if(n == 1 )
+            string nombreArchivo = "";
+            if (ruta != "")
             {
-                MessageBox.Show("Register Succes");
+                nombreArchivo = Path.GetFileName(ruta);
             }
+            if (accion.Equals("Nuevo"))
+            {
+                int n = SQL.registrarAcuaRlizaYeliminar("USPINSERTARDOCTOR",
+                new System.Collections.ArrayList
+                {
+                        "@NOMBRE","@APPATERNO","@APMATERNO","IIDCLINICA","IIDESPECIALIDAD",
+                        "@EMAIL","@TELEFONOCELULAR","@IIDSEXO","@SUELDO",
+                        "@FECHACONTRATO","@ARCHIVO","@nombreArchivo"
+                },
+                new System.Collections.ArrayList
+                {
+                      nombre,apPaterno,apMaterno,idclinica,idespecialidad,email,celular,
+                      idsexo,sueldo, fechaContrato,buffer,nombreArchivo
+                });
+
+                if (n == 1)
+                {
+                    MessageBox.Show("Register Succes");
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.None;
+                }
+
+            }
+            //Actualizar Doctor
             else
             {
-               this.DialogResult= DialogResult.None;
-            }
+                int n = SQL.registrarAcuaRlizaYeliminar("USPACTUALIZARDOCTOR",
+                new System.Collections.ArrayList
+                {
+                        "@IDDOCTOR","@NOMBRE","@APPATERNO","@APMATERNO","IIDCLINICA","IIDESPECIALIDAD",
+                        "@EMAIL","@TELEFONOCELULAR","@IIDSEXO","@SUELDO",
+                        "@FECHACONTRATO","@ARCHIVO","@nombreArchivo"
+                },
+                new System.Collections.ArrayList
+                {
+                      idDoctor,nombre,apPaterno,apMaterno,idclinica,idespecialidad,email,celular,
+                      idsexo,sueldo, fechaContrato,buffer,nombreArchivo
+                });
 
+                if (n == 1)
+                {
+                    MessageBox.Show("Update Succes");
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.None;
+                }
+
+            }
         }
 
         

@@ -51,6 +51,18 @@ namespace ProjectDao.Utilitarios
             grilla.DataSource = tabla; //Llenar contenido
         }
 
+        //Lmmado de datos de la BD
+        public static DataTable obtenerDatos(string nombreProcedure, string nombreParametro, string valorParametro)
+        {
+            SqlCommand cmd = new SqlCommand(nombreProcedure, cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue(nombreParametro, valorParametro);
+            DataTable tabla = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd); //Ejecutar consulta 'cmd'
+            sda.Fill(tabla);
+            return tabla; //Llenar contenido
+        }
+
         public static void LlenarComboBox(string nombreProcedure, ComboBox combo, string displayMember ="Nombre", string valueMember = "Id",bool primerValor = false)
         {
             SqlCommand cmd = new SqlCommand(nombreProcedure, cn);
@@ -159,7 +171,19 @@ namespace ProjectDao.Utilitarios
             return exito;
 
         }
-        
+
+        public static int Eliminar(string nombreProcedure, string nombreParameter, string ValorParameter)
+        {
+
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnx"].ConnectionString);
+            cn.Open(); //Abrir conexion
+            SqlCommand cmd = new SqlCommand(nombreProcedure, cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue(nombreParameter,ValorParameter);
+            int resultado = cmd.ExecuteNonQuery();//Ejecuta la consulta y devuelve 1 si hizo la insercion y 0 si no 
+            cn.Close();
+            return resultado;
+        }
 
     }
 }

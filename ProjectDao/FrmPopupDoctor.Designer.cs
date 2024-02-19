@@ -35,14 +35,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.cbxSexo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtTelfijo = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.ttxtCelular = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtApMat = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtApePat = new System.Windows.Forms.TextBox();
@@ -53,23 +49,23 @@
             this.cbxEspec = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.numSueldo = new System.Windows.Forms.NumericUpDown();
             this.bwDoctor = new System.Windows.Forms.WebBrowser();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCargarImg = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtIdDoctor = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.errorDatos = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.numSueldo)).BeginInit();
+            this.txtIdDoctor = new System.Windows.Forms.TextBox();
+            this.numSueldo = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.errorDatos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSueldo)).BeginInit();
             this.SuspendLayout();
             // 
             // dtFechaContrat
             // 
             this.dtFechaContrat.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaContrat.Location = new System.Drawing.Point(439, 268);
+            this.dtFechaContrat.Location = new System.Drawing.Point(440, 204);
             this.dtFechaContrat.Name = "dtFechaContrat";
             this.dtFechaContrat.Size = new System.Drawing.Size(172, 20);
             this.dtFechaContrat.TabIndex = 62;
@@ -79,7 +75,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Blue;
-            this.label17.Location = new System.Drawing.Point(336, 272);
+            this.label17.Location = new System.Drawing.Point(337, 208);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(94, 16);
             this.label17.TabIndex = 61;
@@ -108,7 +104,7 @@
             // cbxSexo
             // 
             this.cbxSexo.FormattingEnabled = true;
-            this.cbxSexo.Location = new System.Drawing.Point(439, 181);
+            this.cbxSexo.Location = new System.Drawing.Point(439, 171);
             this.cbxSexo.Name = "cbxSexo";
             this.cbxSexo.Size = new System.Drawing.Size(171, 21);
             this.cbxSexo.TabIndex = 54;
@@ -118,29 +114,11 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Blue;
-            this.label12.Location = new System.Drawing.Point(396, 182);
+            this.label12.Location = new System.Drawing.Point(394, 172);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(34, 16);
             this.label12.TabIndex = 49;
             this.label12.Text = "Sexo";
-            // 
-            // txtTelfijo
-            // 
-            this.txtTelfijo.Location = new System.Drawing.Point(440, 236);
-            this.txtTelfijo.Name = "txtTelfijo";
-            this.txtTelfijo.Size = new System.Drawing.Size(171, 20);
-            this.txtTelfijo.TabIndex = 48;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Blue;
-            this.label8.Location = new System.Drawing.Point(369, 238);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 16);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "Tel Fijo";
             // 
             // txtEmail
             // 
@@ -163,7 +141,7 @@
             // 
             // ttxtCelular
             // 
-            this.ttxtCelular.Location = new System.Drawing.Point(143, 167);
+            this.ttxtCelular.Location = new System.Drawing.Point(143, 170);
             this.ttxtCelular.Name = "ttxtCelular";
             this.ttxtCelular.Size = new System.Drawing.Size(171, 20);
             this.ttxtCelular.TabIndex = 44;
@@ -173,29 +151,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(88, 168);
+            this.label6.Location = new System.Drawing.Point(88, 171);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 16);
             this.label6.TabIndex = 43;
             this.label6.Text = "Celular";
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Location = new System.Drawing.Point(143, 135);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(171, 20);
-            this.txtDireccion.TabIndex = 42;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Blue;
-            this.label5.Location = new System.Drawing.Point(74, 135);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 16);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "Dirección";
             // 
             // txtApMat
             // 
@@ -268,7 +228,7 @@
             // cbxEspec
             // 
             this.cbxEspec.FormattingEnabled = true;
-            this.cbxEspec.Location = new System.Drawing.Point(143, 202);
+            this.cbxEspec.Location = new System.Drawing.Point(143, 135);
             this.cbxEspec.Name = "cbxEspec";
             this.cbxEspec.Size = new System.Drawing.Size(171, 21);
             this.cbxEspec.TabIndex = 65;
@@ -279,7 +239,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(59, 203);
+            this.label7.Location = new System.Drawing.Point(59, 136);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 16);
             this.label7.TabIndex = 64;
@@ -290,18 +250,11 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Blue;
-            this.label16.Location = new System.Drawing.Point(84, 252);
+            this.label16.Location = new System.Drawing.Point(84, 208);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(45, 16);
             this.label16.TabIndex = 66;
             this.label16.Text = "Sueldo";
-            // 
-            // numSueldo
-            // 
-            this.numSueldo.Location = new System.Drawing.Point(143, 248);
-            this.numSueldo.Name = "numSueldo";
-            this.numSueldo.Size = new System.Drawing.Size(120, 20);
-            this.numSueldo.TabIndex = 67;
             // 
             // bwDoctor
             // 
@@ -357,15 +310,6 @@
             this.label10.TabIndex = 71;
             this.label10.Text = "Archivo🎴";
             // 
-            // txtIdDoctor
-            // 
-            this.txtIdDoctor.Location = new System.Drawing.Point(143, 42);
-            this.txtIdDoctor.Name = "txtIdDoctor";
-            this.txtIdDoctor.ReadOnly = true;
-            this.txtIdDoctor.Size = new System.Drawing.Size(80, 20);
-            this.txtIdDoctor.TabIndex = 74;
-            this.txtIdDoctor.Tag = "O";
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -381,11 +325,28 @@
             // 
             this.errorDatos.ContainerControl = this;
             // 
+            // txtIdDoctor
+            // 
+            this.txtIdDoctor.Location = new System.Drawing.Point(143, 42);
+            this.txtIdDoctor.Name = "txtIdDoctor";
+            this.txtIdDoctor.ReadOnly = true;
+            this.txtIdDoctor.Size = new System.Drawing.Size(80, 20);
+            this.txtIdDoctor.TabIndex = 74;
+            this.txtIdDoctor.Tag = "";
+            // 
+            // numSueldo
+            // 
+            this.numSueldo.Location = new System.Drawing.Point(150, 215);
+            this.numSueldo.Name = "numSueldo";
+            this.numSueldo.Size = new System.Drawing.Size(164, 20);
+            this.numSueldo.TabIndex = 75;
+            // 
             // FrmPopupDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 466);
+            this.Controls.Add(this.numSueldo);
             this.Controls.Add(this.txtIdDoctor);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnCargarImg);
@@ -393,7 +354,6 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.bwDoctor);
-            this.Controls.Add(this.numSueldo);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.cbxEspec);
             this.Controls.Add(this.label7);
@@ -404,14 +364,10 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cbxSexo);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtTelfijo);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.ttxtCelular);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtDireccion);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtApMat);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtApePat);
@@ -422,8 +378,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPopupDoctor";
             this.Load += new System.EventHandler(this.FrmPopupDoctor_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numSueldo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSueldo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,14 +393,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbxSexo;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtTelfijo;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox ttxtCelular;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtApMat;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtApePat;
@@ -455,14 +407,14 @@
         private System.Windows.Forms.ComboBox cbxEspec;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.NumericUpDown numSueldo;
         private System.Windows.Forms.WebBrowser bwDoctor;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCargarImg;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtIdDoctor;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ErrorProvider errorDatos;
+        private System.Windows.Forms.TextBox txtIdDoctor;
+        private System.Windows.Forms.NumericUpDown numSueldo;
     }
 }

@@ -35,7 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreMedto = new System.Windows.Forms.TextBox();
             this.txtConcentracion = new System.Windows.Forms.TextBox();
-            this.txtIdClinica = new System.Windows.Forms.TextBox();
+            this.txtIdMedcto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbxFormfar = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -115,13 +115,13 @@
             this.txtConcentracion.TabIndex = 8;
             this.txtConcentracion.Tag = "O";
             // 
-            // txtIdClinica
+            // txtIdMedcto
             // 
-            this.txtIdClinica.Location = new System.Drawing.Point(207, 82);
-            this.txtIdClinica.Name = "txtIdClinica";
-            this.txtIdClinica.ReadOnly = true;
-            this.txtIdClinica.Size = new System.Drawing.Size(147, 20);
-            this.txtIdClinica.TabIndex = 7;
+            this.txtIdMedcto.Location = new System.Drawing.Point(207, 82);
+            this.txtIdMedcto.Name = "txtIdMedcto";
+            this.txtIdMedcto.ReadOnly = true;
+            this.txtIdMedcto.Size = new System.Drawing.Size(147, 20);
+            this.txtIdMedcto.TabIndex = 7;
             // 
             // label6
             // 
@@ -252,7 +252,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombreMedto);
             this.Controls.Add(this.txtConcentracion);
-            this.Controls.Add(this.txtIdClinica);
+            this.Controls.Add(this.txtIdMedcto);
             this.Name = "frmPopupMedicamento";
             this.Text = "frmPopupMedicamento";
             this.Load += new System.EventHandler(this.frmPopupMedicamento_Load);
@@ -272,7 +272,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombreMedto;
         private System.Windows.Forms.TextBox txtConcentracion;
-        private System.Windows.Forms.TextBox txtIdClinica;
+        private System.Windows.Forms.TextBox txtIdMedcto;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbxFormfar;
         private System.Windows.Forms.Label label7;

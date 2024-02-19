@@ -38,6 +38,8 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.printDoct = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClinic)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -96,7 +98,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnEditar);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel1.Controls.Add(this.btnImprimir);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(-1, 2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 82);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 37);
             this.flowLayoutPanel1.TabIndex = 5;
@@ -138,6 +140,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnImprimir
             // 
@@ -150,6 +153,23 @@
             this.btnImprimir.TabIndex = 3;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Dubai", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.label2.Location = new System.Drawing.Point(2, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(227, 54);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Gestion Clinicas";
+            // 
+            // printDoct
+            // 
+            this.printDoct.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.iniciarContador);
+            this.printDoct.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.iniciarConfiguracion);
             // 
             // FrmListadoClinica
             // 
@@ -157,6 +177,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtIdClinica);
@@ -184,6 +205,8 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Label label2;
+        private System.Drawing.Printing.PrintDocument printDoct;
     }
 }
 

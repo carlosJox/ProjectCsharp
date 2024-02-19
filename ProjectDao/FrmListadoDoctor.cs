@@ -17,10 +17,13 @@ namespace ProjectDao
         {
             InitializeComponent();
         }
-
-        private void FrmListadoDoctor_Load(object sender, EventArgs e)
+        private void Listar()
         {
             SQL.ListarProcedure("uspListarDoctorPrograma", dgvDoctors);
+        }
+        private void FrmListadoDoctor_Load(object sender, EventArgs e)
+        {
+           Listar();
         }
 
         private void filtrar(object sender, EventArgs e)
@@ -40,9 +43,47 @@ namespace ProjectDao
         {
             FrmPopupDoctor ofrmPopupDoctor = new FrmPopupDoctor();
             ofrmPopupDoctor.accion = "Nuevo";
-            //ofrmPopupClinica.accion = "New";
             ofrmPopupDoctor.ShowDialog();
-            if (ofrmPopupDoctor.DialogResult.Equals(DialogResult.OK)) ;
+            if (ofrmPopupDoctor.DialogResult.Equals(DialogResult.OK))
+            {
+                SQL.ListarProcedure("uspListarDoctorPrograma", dgvDoctors);
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            FrmPopupDoctor ofrmPopupDoctor = new FrmPopupDoctor();
+            ofrmPopupDoctor.accion = "Editar";
+            ofrmPopupDoctor.id = dgvDoctors.CurrentRow.Cells[0].Value.ToString();
+            ofrmPopupDoctor.ShowDialog();
+            if (ofrmPopupDoctor.DialogResult.Equals(DialogResult.OK))
+            {
+                SQL.ListarProcedure("uspListarDoctorPrograma", dgvDoctors);
+            }
+        }
+
+        private void dgvDoctors_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string id = dgvDoctors.CurrentRow.Cells[0].Value.ToString();
+            if (MessageBox.Show("Desea Eliminar", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+            {
+                int n = SQL.Eliminar("uspeliminardoctos", "@iddoctor", id);
+                if (n == 1)
+                {
+                    MessageBox.Show("Delete Success ");
+                    Listar();
+                }
+                else
+                {
+                    MessageBox.Show("Not Delete Success ");
+                }
+
+            }
         }
     }
 }

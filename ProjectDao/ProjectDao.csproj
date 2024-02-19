@@ -101,6 +101,12 @@
     <Compile Include="FrmPopupDoctor.Designer.cs">
       <DependentUpon>FrmPopupDoctor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPopupEspecialidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPopupEspecialidad.Designer.cs">
+      <DependentUpon>FrmPopupEspecialidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPopupMedicamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPopupDoctor.resx">
       <DependentUpon>FrmPopupDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPopupEspecialidad.resx">
+      <DependentUpon>FrmPopupEspecialidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPopupMedicamento.resx">
       <DependentUpon>frmPopupMedicamento.cs</DependentUpon>
